@@ -44,12 +44,11 @@ set signcolumn=yes
 
 colorscheme gruvbox
 
-nnoremap <leader>h :wincmd h <CR>
-nnoremap <leader>j :wincmd j <CR>
-nnoremap <leader>k :wincmd k <CR>
-nnoremap <leader>l :wincmd l <CR>
 map <C-b> :NERDTreeToggle<CR>
-nnoremap <leader>ps :Rg<space>
+nnoremap <silent> <leader>h :wincmd h <CR>
+nnoremap <silent> <leader>j :wincmd j <CR>
+nnoremap <silent> <leader>k :wincmd k <CR>
+nnoremap <silent> <leader>l :wincmd l <CR>
 nnoremap <silent> <leader>t :wincmd n <bar> :wincmd J <bar> :resize 10 <bar> :set wfh <bar> :terminal<CR>
 nnoremap <silent> <leader>pv :wincmd v <bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <silent> <leader>P :CtrlP ~<CR>
