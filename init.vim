@@ -11,6 +11,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'airblade/vim-gitgutter'
+Plug 'haya14busa/is.vim'
 call plug#end()
 
 let mapleader=" "
@@ -40,12 +41,15 @@ set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
 set incsearch
-set nohlsearch
+" set nohlsearch
 set scrolloff=8
 set inccommand=split
 set colorcolumn=80
 set signcolumn=yes
 set background=dark
+set diffopt+=vertical
+" Update to make git gutter faster
+set updatetime=100
 
 colorscheme gruvbox 
 map <C-b> :NERDTreeToggle<CR>
@@ -62,6 +66,7 @@ nnoremap <silent> <C-n> :tabnew <CR>
 nnoremap <silent> <C-f> :Files<CR>
 " Find in files
 nnoremap <silent> <Leader>f :Rg<CR>
+
 
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
@@ -101,6 +106,9 @@ let g:airline_symbols.space = "\ua0"
 " LSP
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " LSP config (the mappings used in the default file don't quite work right)
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
